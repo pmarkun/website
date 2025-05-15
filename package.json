@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "scripts": {
     "start": "eleventy --serve",
-    "build": "eleventy",
+    "build": "eleventy --pathprefix='/website/'",
     "deploy": "npm run build && gh-pages -d dist -m \"Deploy automático em $(date)\""
   },
   "devDependencies": {
