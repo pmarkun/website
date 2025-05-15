@@ -1,19 +1,19 @@
 {# src/_includes/components/header.njk #}
 <header class="site-header">
   <div class="header-left">
-    <a href="/" class="logo">
+    <a href="{{ '/' | url }}" class="logo">
       <!-- Substitua pelo seu SVG ou PNG -->
-      <img src="/assets/img/logo.png" alt="Logo Bobo Hacker" class="logo__img">
+      <img src="{{ '/assets/img/logo.png' | url }}" alt="Logo Bobo Hacker" class="logo__img">
       <span class="logo__text">~/markun</span>
     </a>
   </div>
 
   <nav class="nav-main">
-    <a href="/" class="nav-main__link{% if titlePage == 'Home' %} is-active{% endif %}">Home</a>
-    <a href="/sobre/" class="nav-main__link{% if titlePage == 'Sobre mim' %} is-active{% endif %}">Sobre</a>
-    <a href="/portfolio/" class="nav-main__link{% if titlePage == 'Portfólio' %} is-active{% endif %}">Portfólio</a>
-    <a href="/blog/" class="nav-main__link{% if titlePage == 'Blog' %} is-active{% endif %}">Blog</a>
-    <a href="/contato/" class="nav-main__link{% if titlePage == 'Contato' %} is-active{% endif %}">Contato</a>
+    <a href="{{'/' | url }}" class="nav-main__link{% if titlePage == 'Home' %} is-active{% endif %}">Home</a>
+    <a href="{{ '/sobre/' | url }}" class="nav-main__link{% if titlePage == 'Sobre mim' %} is-active{% endif %}">Sobre</a>
+    <a href="{{ '/portfolio/' | url }}" class="nav-main__link{% if titlePage == 'Portfólio' %} is-active{% endif %}">Portfólio</a>
+    <a href="{{ '/blog/' | url }}" class="nav-main__link{% if titlePage == 'Blog' %} is-active{% endif %}">Blog</a>
+    <a href="{{ '/contato/' | url }}" class="nav-main__link{% if titlePage == 'Contato' %} is-active{% endif %}">Contato</a>
   </nav>
 
   <button class="theme-toggle" aria-label="Alternar tema">

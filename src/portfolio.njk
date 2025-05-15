@@ -9,9 +9,7 @@ permalink: /portfolio/
 {# Usar um ID ou uma classe mais específica para a seção inteira do portfólio #}
 <section id="portfolio-section">
 
-  {# Adicionar | dictsort | reverse para ordenar os anos, do mais recente para o mais antigo #}
-  {# Se 'year' for um número, apenas | reverse pode ser suficiente dependendo da ordenação original #}
-  {% for year, items in collections.portfolio | groupBy("data.year") | dictsort(true) | reverse %}
+  {% for year, items in collections.portfolio | groupBy("data.year") %}
     <div class="portfolio-year-group">
       <h2 class="portfolio-year">{{ year }}</h2>
 
@@ -28,7 +26,7 @@ permalink: /portfolio/
                 <img src="{{ item.data.image }}" alt="{{ item.data.title }}" class="portfolio-item__image">
             {% else %}
                 {# Uma imagem placeholder genérica é uma boa ideia se não houver imagem específica #}
-                <img src="/assets/img/logo.png" alt="Placeholder para {{ item.data.title }}" class="portfolio-item__image">
+                <img src="{{ '/assets/img/logo.png' | url }}" alt="Placeholder para {{ item.data.title }}" class="portfolio-item__image">
             {% endif %}
 
             {% if item.data.link %}
