@@ -1,0 +1,16 @@
+{
+  "name": "markun-website",
+  "version": "1.0.0",
+  "scripts": {
+    "start": "eleventy --serve",
+    "build": "eleventy",
+    "deploy": "npm run build && gh-pages -d dist -m \"Deploy automático em $(date)\""
+  },
+  "devDependencies": {
+    "@11ty/eleventy": "^2.0.0",
+    "gh-pages": "^6.1.1"
+  },
+  "dependencies": {
+    "lodash": "^4.17.21"
+  }
+}

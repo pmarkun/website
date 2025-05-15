@@ -1,0 +1,64 @@
+---
+layout: base.njk
+titlePage: "Portfólio"
+permalink: /portfolio/
+---
+
+<h1>{{ titlePage }}</h1> {# Usar a variável titlePage aqui também #}
+
+{# Usar um ID ou uma classe mais específica para a seção inteira do portfólio #}
+<section id="portfolio-section">
+
+  {# Adicionar | dictsort | reverse para ordenar os anos, do mais recente para o mais antigo #}
+  {# Se 'year' for um número, apenas | reverse pode ser suficiente dependendo da ordenação original #}
+  {% for year, items in collections.portfolio | groupBy("data.year") | dictsort(true) | reverse %}
+    <div class="portfolio-year-group">
+      <h2 class="portfolio-year">{{ year }}</h2>
+
+      {# ADICIONAR ESTE CONTAINER PARA OS ITENS DO ANO #}
+      <div class="portfolio-items">
+        {% for item in items %}
+          <article class="portfolio-item">
+            {# Opcional: tornar a imagem um link se o projeto tiver um link #}
+            {% if item.data.link %}
+              <a href="{{ item.data.link }}" class="portfolio-item__image-link" target="_blank" rel="noopener noreferrer">
+            {% endif %}
+
+            {% if item.data.image %}
+                <img src="{{ item.data.image }}" alt="{{ item.data.title }}" class="portfolio-item__image">
+            {% else %}
+                {# Uma imagem placeholder genérica é uma boa ideia se não houver imagem específica #}
+                <img src="/assets/img/logo.png" alt="Placeholder para {{ item.data.title }}" class="portfolio-item__image">
+            {% endif %}
+
+            {% if item.data.link %}
+              </a>
+            {% endif %}
+
+            {# Container para o conteúdo textual do item #}
+            <div class="portfolio-item__content">
+              {# Mudar para h3 para melhor semântica #}
+              <h3 class="portfolio-item__title">{{ item.data.title }}</h3>
+
+              {# Se item.content pode ter HTML, usar uma div é mais seguro que um p #}
+              <div class="portfolio-item__description">{{ item.content | safe }}</div>
+
+              {# Apenas mostrar a lista de tags se houver tags #}
+              {% if item.data.tags and item.data.tags.length > 0 %}
+                <ul class="portfolio-item__tags">
+                  {% for tag in item.data.tags %}
+                    <li class="portfolio-item__tag">{{ tag }}</li>
+                  {% endfor %}
+                </ul>
+              {% endif %}
+
+              {% if item.data.link %}
+                <a href="{{ item.data.link }}" class="portfolio-item__link" target="_blank" rel="noopener noreferrer">Visitar Projeto →</a>
+              {% endif %}
+            </div>
+          </article>
+        {% endfor %}
+      </div> {# Fim de .portfolio-items #}
+    </div> {# Fim de .portfolio-year-group #}
+  {% endfor %}
+</section>

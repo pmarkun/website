@@ -1,0 +1,6 @@
+{# src/_includes/components/badges.njk #}
+{% macro badge(text, type = "primary") -%}
+  <span class="badge badge--{{ type }}">
+    {{ text }}
+  </span>
+{%- endmacro %}

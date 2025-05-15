@@ -1,0 +1,13 @@
+{
+  "title": "Pedro Markun",
+  "description": "Hacker cívico, escritor, desenvolvedor e criador de experiências...",
+  "headerGradient": "linear-gradient(90deg, #7f00ff 0%, #e100ff 100%)",
+  "badges": {
+    "Hacker Cívico": "#6f42c1",
+    "Autor": "#d63384",
+    "Game Designer": "#20c997",
+    "Pai": "#dc3545",
+    "Inovador": "#fd7e14"
+  },
+  "accentColor": "#e100ff"
+}

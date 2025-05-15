@@ -1,0 +1,24 @@
+{# src/_includes/components/header.njk #}
+<header class="site-header">
+  <div class="header-left">
+    <a href="/" class="logo">
+      <!-- Substitua pelo seu SVG ou PNG -->
+      <img src="/assets/img/logo.png" alt="Logo Bobo Hacker" class="logo__img">
+      <span class="logo__text">~/markun</span>
+    </a>
+  </div>
+
+  <nav class="nav-main">
+    <a href="/" class="nav-main__link{% if titlePage == 'Home' %} is-active{% endif %}">Home</a>
+    <a href="/sobre/" class="nav-main__link{% if titlePage == 'Sobre mim' %} is-active{% endif %}">Sobre</a>
+    <a href="/portfolio/" class="nav-main__link{% if titlePage == 'Portfólio' %} is-active{% endif %}">Portfólio</a>
+    <a href="/blog/" class="nav-main__link{% if titlePage == 'Blog' %} is-active{% endif %}">Blog</a>
+    <a href="/contato/" class="nav-main__link{% if titlePage == 'Contato' %} is-active{% endif %}">Contato</a>
+  </nav>
+
+  <button class="theme-toggle" aria-label="Alternar tema">
+    <!-- icones inline ou SVG externo -->
+    <svg class="icon-sun" viewBox="0 0 24 24"><!-- ... --></svg>
+    <svg class="icon-moon" viewBox="0 0 24 24"><!-- ... --></svg>
+  </button>
+</header>
